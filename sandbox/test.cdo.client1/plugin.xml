@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="test.cdo.client1.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="test.cdo.client1.Perspective"
+            id="cl.guevara.rcptutorial.application.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="test.cdo.client1.ListAuthorViewPart"
+            id="cl.guevara.rcptutorial.application.view.list.author"
+            name="Authors"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <command
+               commandId="org.eclipse.ui.views.showView"
+               label="Open View Authors"
+               style="push">
+            <parameter
+                  name="org.eclipse.ui.views.showView.viewId"
+                  value="cl.guevara.rcptutorial.application.view.list.author">
+            </parameter>
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>
